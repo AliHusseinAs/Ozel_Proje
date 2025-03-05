@@ -74,8 +74,8 @@ public class ServiceClass implements ServiceInterface{
     }
 
     @Override
-    public ResponseEntity<String> UpdatePassword(String password, String userName) {
-        Optional<RegisterModel> registerModel1 = repoInter.findByUserName(userName);
+    public ResponseEntity<String> UpdatePassword(String password, String userName, String mail) {
+        Optional<RegisterModel> registerModel1 = repoInter.findByUserNameAndMail(userName, mail);
 
         if(registerModel1.isEmpty()) {
             return new ResponseEntity<>("Kullanıcı adı bulunamadı", HttpStatus.NOT_FOUND);

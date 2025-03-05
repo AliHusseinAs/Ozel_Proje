@@ -9,6 +9,6 @@ public interface ServiceInterface{
     void Login(String password, String userName); // POST
     String ValidatePassAndUserName(String password); // Not API
     void DeleteUserByUserName(String userName);
-    ResponseEntity<String> UpdatePassword(String password, String userName);
+    ResponseEntity<String> UpdatePassword(String password, String userName, String mail);
 
 }

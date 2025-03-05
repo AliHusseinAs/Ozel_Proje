@@ -40,6 +40,7 @@ public class Controllers {
     public ResponseEntity<String> updatePassword(@RequestBody Map<String, String> body) {
         String userName = body.get("userName");
         String newPass = body.get("password");
+        String user_mail = body.get("mail");
         if (userName == null || userName.isEmpty()) {
             return new ResponseEntity<>("Kullanıcı adı boş olamaz", HttpStatus.BAD_REQUEST);
         }
@@ -47,7 +48,10 @@ public class Controllers {
         if (newPass == null || newPass.isEmpty()) {
             return new ResponseEntity<>("Şifre boş olamaz", HttpStatus.BAD_REQUEST);
         }
-        return servInter.UpdatePassword(newPass, userName);
 
+        if(user_mail == null || user_mail.isEmpty()) {
+            return new ResponseEntity<>("Mail adresi boş olamaz", HttpStatus.BAD_REQUEST);
+        }
+        return servInter.UpdatePassword(newPass, userName, user_mail);
     }
 }

@@ -9,4 +9,5 @@ public interface RepoInter extends JpaRepository<RegisterModel, Long> {
     boolean  existsByUserName(String userName);
     Optional<RegisterModel> deleteByUserName(String userName);
     Optional<RegisterModel> findByUserName(String userName);
+    Optional<RegisterModel> findByUserNameAndMail(String userName, String mail);
 }
